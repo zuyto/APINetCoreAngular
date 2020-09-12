@@ -1,0 +1,158 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Entidades</h1>
+    </div>
+  </div>
+  <div class="rowForm">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panelbody">
+          <div id="formContratoArriendos">
+            <div class="rowForm align-items-end">
+              <div class="col-md-3">
+                <label class="panel-title" for="txtNombre">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtNombre"
+                  [(ngModel)]="EntidadesModel.nombre"
+                  tipo-dato="soloAlfabeto"
+                  longitud="25"
+                  maxlength="30"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtPais"
+                  >País</label
+                >
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtPais"
+                  [(ngModel)]="EntidadesModel.pais"
+                  tipo-dato="soloAlfabeto"
+                  longitud="25"
+                  maxlength="30"
+                  [disabled]="!access().pass"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <label class="panel-title" for="txtDepartamento"
+                  >Departamento</label
+                >
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtDepartamento"
+                  [(ngModel)]="EntidadesModel.departamento"
+                  tipo-dato="soloAlfabeto"
+                  longitud="25"
+                  maxlength="30"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtCiudad"
+                  >Ciudad</label
+                >
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtCiudad"
+                  [(ngModel)]="EntidadesModel.ciudad"
+                  tipo-dato="soloAlfabeto"
+                  longitud="25"
+                  maxlength="30"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtDireccion">Dirección</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtDireccion"
+                  [(ngModel)]="EntidadesModel.direccion"
+                  tipo-dato="numerico"
+                  longitud="10"
+                  maxlength="10"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtTelefono">Teléfono</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtTelefono"
+                  [(ngModel)]="EntidadesModel.telefono"
+                  tipo-dato="numerico"
+                  longitud="200"
+                  maxlength="200"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtCorreo">Email</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtCorreo"
+                  [(ngModel)]="EntidadesModel.correo"
+                  tipo-dato="alfanumerico"
+                  longitud="100"
+                  maxlength="100"
+                  [disabled]="!access().pass"
+                />
+              </div>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <button
+      type="button"
+      class="btn btn-default btn-sm float-right"
+      [disabled]="!access().pass"
+      (click)="CreateEntidad()"
+    >
+      Guardar
+    </button>
+  </div>
+</div>
+
+<p *ngIf="!tablaEntidad"><em>Loading...</em></p>
+
+<table class="table" *ngIf="tablaEntidad" style="margin-top: 50px">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>País</th>
+      <th>Departamento</th>
+      <th>Ciudad</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tablaEntidad of tablaEntidad">
+      <td>{{ tablaEntidad.id }}</td>
+      <td>{{ tablaEntidad.nombre }}</td>
+      <td>{{ tablaEntidad.pais }}</td>
+      <td>{{ tablaEntidad.departamento }}</td>
+      <td>{{ tablaEntidad.ciudad }}</td>
+      <td>{{ tablaEntidad.direccion }}</td>
+      <td>{{ tablaEntidad.telefono }}</td>
+      <td>{{ tablaEntidad.correo }}</td>
+    </tr>
+  </tbody>
+</table>

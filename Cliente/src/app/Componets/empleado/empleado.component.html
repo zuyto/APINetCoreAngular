@@ -1,0 +1,210 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Empleados</h1>
+    </div>
+  </div>
+  <div class="rowForm">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panelbody">
+          <div id="formContratoArriendos">
+            <div class="rowForm align-items-end">
+              <div class="col-md-3">
+                <label class="panel-title" for="txtNombre">Nombres</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtNombre"
+                  [(ngModel)]="EmpleadosModel.nombres"
+                  tipo-dato="soloAlfabeto"
+                  longitud="25"
+                  maxlength="30"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtApellidos"
+                  >Apellidos</label
+                >
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtApellidos"
+                  [(ngModel)]="EmpleadosModel.apellidos"
+                  tipo-dato="soloAlfabeto"
+                  longitud="25"
+                  maxlength="30"
+                  [disabled]="!access().pass"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <label class="panel-title" for="txtGenero"
+                  >Genero</label
+                >
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtGenero"
+                  [(ngModel)]="EmpleadosModel.genero"
+                  tipo-dato="soloAlfabeto"
+                  longitud="25"
+                  maxlength="30"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtEdad"
+                  >Edad</label
+                >
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtEdad"
+                  [(ngModel)]="EmpleadosModel.edad"
+                  tipo-dato="soloAlfabeto"
+                  longitud="25"
+                  maxlength="30"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtDireccion">Dirección</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtDireccion"
+                  [(ngModel)]="EmpleadosModel.direccion"
+                  tipo-dato="numerico"
+                  longitud="10"
+                  maxlength="10"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtTelefono">Teléfono</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtTelefono"
+                  [(ngModel)]="EmpleadosModel.telefono"
+                  tipo-dato="numerico"
+                  longitud="200"
+                  maxlength="200"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtCorreo">Email</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtCorreo"
+                  [(ngModel)]="EmpleadosModel.correo"
+                  tipo-dato="alfanumerico"
+                  longitud="100"
+                  maxlength="100"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtCargo">Cargo</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtCargo"
+                  [(ngModel)]="EmpleadosModel.cargo"
+                  tipo-dato="alfanumerico"
+                  longitud="100"
+                  maxlength="100"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtSalario">Salario</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtSalario"
+                  [(ngModel)]="EmpleadosModel.salario"
+                  tipo-dato="alfanumerico"
+                  longitud="100"
+                  maxlength="100"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtDocumento">Documento</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtDocumento"
+                  [(ngModel)]="EmpleadosModel.documento"
+                  tipo-dato="alfanumerico"
+                  longitud="100"
+                  maxlength="100"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="panel-title" for="txtTipoDocumento">Tipo Documento</label>
+                <input
+                  type="text"
+                  class="form-control col-md-12"
+                  id="txtTipoDocumento"
+                  [(ngModel)]="EmpleadosModel.tipoDocumento"
+                  tipo-dato="alfanumerico"
+                  longitud="100"
+                  maxlength="100"
+                  [disabled]="!access().pass"
+                />
+              </div>
+              </div>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <button
+      type="button"
+      class="btn btn-default btn-sm float-right"
+      [disabled]="!access().pass"
+      (click)="CreateEntidad()"
+    >
+      Guardar
+    </button>
+  </div>
+</div>
+
+<p *ngIf="!tablaEmpleados"><em>Loading...</em></p>
+
+<table class="table" *ngIf="tablaEmpleados" style="margin-top: 50px">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>País</th>
+      <th>Departamento</th>
+      <th>Ciudad</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tablaEmpleados of tablaEmpleados">
+      <td>{{ tablaEmpleados.id }}</td>
+      <td>{{ tablaEmpleados.nombre }}</td>
+      <td>{{ tablaEmpleados.pais }}</td>
+      <td>{{ tablaEmpleados.departamento }}</td>
+      <td>{{ tablaEmpleados.ciudad }}</td>
+      <td>{{ tablaEmpleados.direccion }}</td>
+      <td>{{ tablaEmpleados.telefono }}</td>
+      <td>{{ tablaEmpleados.correo }}</td>
+    </tr>
+  </tbody>
+</table>
