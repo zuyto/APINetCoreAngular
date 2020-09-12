@@ -55,6 +55,9 @@ Las siguientes son instrucciones detalladas para instalar el código para que pu
 3.Al ejecutar la solución podra observar que se abrira el navegador y observara una aplicaicon Swagger la cual es una herramienta para API creada en ASP.NET Core.
 esta interfaz de usuario permite explorar y probar operaciones, directamente desde sus rutas, controladores y modelos.
 
+4.Dentro de la solucon se encuentra el script para la creacion de la DB.
+**Archivo: SQLQuery1.sql**
+
 
 ## Autores ✒️
 
